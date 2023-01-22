@@ -1,0 +1,24 @@
+.gridContainer2{
+    display: grid;
+    border: 1px solid black;
+    padding: 1px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+}
+.total{
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}
+.texte{
+    border: 1px solid black;
+}
+.calc{
+    display: flex;
+}
+.basicCal{
+    border: 1px solid black;
+}
