@@ -11,24 +11,24 @@
 <body>
     <div class="bg-gradient-to-r from-cyan-500 to-pink-500 h-screen w-screen"></div>
  <div id="total" class="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]">
-    <div id="nav" class="flex flex-row justify-start items-center h-[20px] w-[500px] gap-1 cursor-grab bg-white/5 backdrop-blur-sm rounded-tl-md rounded-tr-md">
+    <div id="nav" class="flex flex-row justify-start items-center h-[20px] w-[500px] gap-1 cursor-grab bg-[#40404c] opacity-75 rounded-tl-md rounded-tr-md">
         <button class="bg-red-600 w-[10px] h-[10px] ml-2 rounded-full"></button>
         <button class="bg-yellow-500 w-[10px] h-[10px] rounded-full"></button>
         <button onclick="toggleSize()" class="bg-green-500 w-[10px] h-[10px] rounded-full"></button>
     </div>
     <div class="content">
         <div id="texted">
-            <input type="text" name="disp" id="texte" class=" text-right bg-white/5 backdrop-blur-sm text-[#E1E1E2] w-[500px] border-none "  placeholder="0">
+            <input type="text" name="disp" id="texte" class=" text-right bg-[#40404c] opacity-75 text-[#E1E1E2] w-[500px] border-none "  placeholder="0">
         </div>
-        <div class="calc grid grid-cols-2 " >
-            <div id="sciCal" class="block">
-                <div  class="grid grid-cols-6 grid-rows-5 b-2 w-[300px] h-[250px] border-black bg-white/5 backdrop-blur-sm text-[#E1E1E2] justify-center items-center text-center gap-[1px] rounded-bl-md ">
+        <div class="flex flex-row " >
+            <div id="sciCal" class="block w-[300px] h-[250px]">
+                <div  class="grid grid-cols-6 grid-rows-5 b-2 w-[300px] h-[250px] border-black cursor-pointer bg-[#40404c] opacity-75 text-[#E1E1E2] justify-center items-center text-center gap-[1px] rounded-bl-md ">
                    <div onclick="setValue('(')" id="btn(">(</div>
                    <div onclick="setValue(')')" id="btn)">)</div>
-                   <div onclick="setValue('')" id="btnmc">mc</div>
-                   <div onclick="setValue('')" id="btnmp">m+</div>
-                   <div onclick="setValue('')" id="btnnm">m-</div>
-                   <div onclick="setValue('')" id="btnmr">mr</div>
+                   <div onclick="setValue('mc')" id="btnmc">mc</div>
+                   <div onclick="setValue('m+')" id="btnmp">m+</div>
+                   <div onclick="setValue('m-')" id="btnnm">m-</div>
+                   <div onclick="setValue('mr')" id="btnmr">mr</div>
                    <div onclick="setValue('')" id="btn2nd">2nd</div>
                    <div onclick="setValue('x2')" id="btnx2">x2</div>
                    <div onclick="setValue('x3')" id="btnx3">x3</div>
@@ -36,7 +36,7 @@
                    <div onclick="setValue('')" id="btnex">ex</div>
                    <div onclick="setValue('10^')" id="btn10x">10x</div>
                    <div onclick="setValue('1/')" id="btn1byx">1/x</div>
-                   <div onclick="setValue('2√')" id="btn2rootx">2√x</div>
+                   <div onclick="setValue('Math.sqrt(')" id="btn2rootx">2√x</div>
                    <div onclick="setValue('1√')" id="btn3rootx">3√x</div>
                    <div onclick="setValue('Math.sqrt(')" id="btnyrootx">y√x</div>
                    <div onclick="setValue('ln')" id="btnln">ln</div>
@@ -45,37 +45,37 @@
                    <div onclick="setValue('Math.sin(')" id="btnsin">sin</div>
                    <div onclick="setValue('Math.cos(')" id="btncos">cos</div>
                    <div onclick="setValue('Math.tan(')" id="btntan">tan</div>
-                   <div onclick="setValue('')" id="btne">e</div>
-                   <div onclick="setValue('')" id="btnEE">EE</div>
+                   <div onclick="setValue('xxe')" id="btne">e</div>
+                   <div onclick="setValue('xe')" id="btnEE">EE</div>
                    <div onclick="setValue('')" id="btnRad">Rad</div>
                    <div onclick="setValue('sinh')" id="btnsinh">sinh</div>
                    <div onclick="setValue('cosh')" id="btncosh">cosh</div>
                    <div onclick="setValue('tanh')" id="btntanh">tanh</div>
-                   <div onclick="setValue('π')" id="btnpi">π</div>
+                   <div onclick="setValue('xπ')" id="btnpi">π</div>
                    <div onclick="setValue('Math.Random')" id="btnRand">Rand</div>
                 </div>
             </div>
-            <div class="basicCal">
-                <div  class="grid grid-cols-4 grid-rows-5 b-2 w-[200px] h-[250px] border-black bg-white/5 backdrop-blur-sm text-[#E1E1E2] justify-center items-center text-center gap-[1px] rounded-br-md">
-                    <div onclick="setValue('0-')" id="btnac" class="w-full h-full">AC</div>
-                    <div onclick="setValue('~')"id="btnpm" class="w-full h-full">+/-</div>
-                    <div onclick="setValue('%')" id="btnper" class="w-full h-full">%</div>
-                    <div onclick="setValue('/')" id="btndiv" class=" bg-[#ff9f1c] backdrop-blur-xl w-full h-full">÷</div>
-                    <div onclick="setValue('9')" id="btn9" class=" bg-white/30 backdrop-blur-sm w-full h-full">9</div>
-                    <div onclick="setValue('8')" id="btn8" class=" bg-white/30 backdrop-blur-sm w-full h-full">8</div>
-                    <div onclick="setValue('7')" id="btn7" class=" bg-white/30 backdrop-blur-sm w-full h-full">7</div>
-                    <div onclick="setValue('*')" id="btnmul" class="bg-[#ff9f1c] backdrop-blur-xl w-full h-full">×</div>
-                    <div onclick="setValue('6')" id="btn6" class=" bg-white/30 backdrop-blur-sm w-full h-full">6</div>
-                    <div onclick="setValue('5')" id="btn5" class=" bg-white/30 backdrop-blur-sm w-full h-full">5</div>
-                    <div onclick="setValue('4')" id="btn4" class=" bg-white/30 backdrop-blur-sm w-full h-full">4</div>
-                    <div onclick="setValue('-')" id="btnsub" class=" bg-[#ff9f1c] backdrop-blur-xl w-full h-full">-</div>
-                    <div onclick="setValue('3')" id="btn3" class=" bg-white/30 backdrop-blur-sm w-full h-full">3</div>
-                    <div onclick="setValue('2')" id="btn2" class=" bg-white/30 backdrop-blur-sm w-full h-full">2</div>
-                    <div onclick="setValue('1')" id="btn1" class=" bg-white/30 backdrop-blur-sm w-full h-full">1</div>
-                    <div onclick="setValue('+')" id="btnadd" class=" bg-[#ff9f1c] backdrop-blur-xl w-full h-full">+</div>
-                    <div onclick="setValue('0')" id="btn0"class="col-span-2 bg-white/30 backdrop-blur-sm w-full h-full">0</div>
-                    <div onclick="setValue('.')" id="btndot" class=" bg-white/30 backdrop-blur-sm w-full h-full">.</div>
-                    <div id="btnequal" onclick="calculate()" class="bg-[#ff9f1c] backdrop-blur-xl w-full h-full">=</div>
+            <div class="basicCal w-[200px] h-[250px]">
+                <div  class="grid grid-cols-4 grid-rows-5 b-2 w-[200px] h-[250px] border-black cursor-pointer text-[#E1E1E2] justify-center items-center text-center gap-[1px] rounded-br-md">
+                    <div onclick="setValue('0-')" id="btnac" class="bg-[#40404c] opacity-75 w-full h-full text-center"><p class="mt-3">AC</p></div>
+                    <div onclick="setValue('~')"id="btnpm" class="bg-[#40404c] opacity-75 w-full h-full text-center"><p class="mt-3">+/-</p></div>
+                    <div onclick="setValue('%')" id="btnper" class="bg-[#40404c] opacity-75 w-full h-full text-center"><p class="mt-3">%</p></div>
+                    <div onclick="setValue('/')" id="btndiv" class=" bg-[#ff9f1c] backdrop-blur-xl w-full h-full text-center"><p class="mt-3">÷</p></div>
+                    <div onclick="setValue('9')" id="btn9" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">9</p></div>
+                    <div onclick="setValue('8')" id="btn8" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">8</p></div>
+                    <div onclick="setValue('7')" id="btn7" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">7</p></div>
+                    <div onclick="setValue('*')" id="btnmul" class="bg-[#ff9f1c] backdrop-blur-xl w-full h-full text-center"><p class="mt-3">×</p></div>
+                    <div onclick="setValue('6')" id="btn6" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">6</p></div>
+                    <div onclick="setValue('5')" id="btn5" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">5</p></div>
+                    <div onclick="setValue('4')" id="btn4" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">4</p></div>
+                    <div onclick="setValue('-')" id="btnsub" class=" bg-[#ff9f1c] backdrop-blur-xl w-full h-full text-center"><p class="mt-3">-</p></div>
+                    <div onclick="setValue('3')" id="btn3" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">3</p></div>
+                    <div onclick="setValue('2')" id="btn2" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">2</p></div>
+                    <div onclick="setValue('1')" id="btn1" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">1</p></div>
+                    <div onclick="setValue('+')" id="btnadd" class=" bg-[#ff9f1c] backdrop-blur-xl w-full h-full text-center"><p class="mt-3">+</p></div>
+                    <div onclick="setValue('0')" id="btn0"class="col-span-2 bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">0</p></div>
+                    <div onclick="setValue('.')" id="btndot" class=" bg-[#696772] opacity-75 w-full h-full text-center"><p class="mt-3">.</p></div>
+                    <div id="btnequal" onclick="calculate()" class="bg-[#ff9f1c] backdrop-blur-xl w-full h-full text-center"><p class="mt-3">=</p></div>
                 </div>
             </div>
         </div>

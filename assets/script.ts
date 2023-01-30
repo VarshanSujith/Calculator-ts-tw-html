@@ -55,45 +55,86 @@ function calculate() {
         /* Otherwise evaluate and execute output */
         disp.value = eval(disp.value);
 }
-function setValue(val:any){
-    if(val=='0-'){
-        disp.value=''
+var t=true
+function setValue(val:any) {
+    if(t){
+    var nas:any = Number(disp.value);
+    localStorage.setItem("m",nas);
+    console.log(nas)
+    console.log(disp.value)
+    console.log(val)
+    // t=false
     }
-    else if(val=='~'){
-        var ans= Number(disp.value)
-        disp.value=ans*-1
+    if (val == '0-') {
+        disp.value = '';
     }
-    else if(val=='x2'){
-        var ans= Number(disp.value)
-        disp.value=Math.pow(ans, 2)
+    else if(val=='xe'){
+        console.log(val)
+        var num=Number(disp.value);
+        disp.value = num*(Math.pow(10,num))
     }
-    else if(val=='x3'){
-        var ans= Number(disp.value)
-        disp.value=Math.pow(ans, 2)
+    else if(val=='xxe'){
+        var num=Number(disp.value);
+        disp.value=num*2.718281828459045
     }
-    else if(val=='10^'){
-        var ans= Number(disp.value)
-        disp.value=Math.pow(10, ans)
+    else if (val == '~') {
+        var ans = Number(disp.value);
+        disp.value = ans * -1;
     }
-    else if(val=='tanh'){
-    var ans= Number(disp.value)
-    var e1 = Math.pow(Math.E, ans)
-    var e2 = Math.pow(Math.E, -ans)
-    disp.value=(e1 - e2) / (e1 + e2)}
-    else if(val=='cosh'){
-        var ans= Number(disp.value)
-        disp.value=(Math.pow(Math.E, ans) + Math.pow(Math.E, -ans)) / 2
+    else if (val == 'x2') {
+        var ans = Number(disp.value);
+        disp.value = Math.pow(ans, 2);
     }
-    else if(val=='sinh'){
-        var ans= Number(disp.value)
-        disp.value=((Math.pow(Math.E, ans) - Math.pow(Math.E, -ans)) / 2)
+    else if (val == 'x3') {
+        var ans = Number(disp.value);
+        disp.value = Math.pow(ans, 3);
     }
-    else{
-    disp.value+=val
+    else if (val == '10^') {
+        var ans = Number(disp.value);
+        disp.value = Math.pow(10, ans);
+    }
+    else if(val=='^'){
+        var ans = Number(disp.value)
+        console.log(ans);
+    }
+    else if (val == 'tanh') {
+        var ans = Number(disp.value);
+        var e1 = Math.pow(Math.E, ans);
+        var e2 = Math.pow(Math.E, -ans);
+        disp.value = (e1 - e2) / (e1 + e2);
+    }
+    else if (val == 'cosh') {
+        var ans = Number(disp.value);
+        disp.value = (Math.pow(Math.E, ans) + Math.pow(Math.E, -ans)) / 2;
+    }
+    else if (val == 'sinh') {
+        var ans = Number(disp.value);
+        disp.value = ((Math.pow(Math.E, ans) - Math.pow(Math.E, -ans)) / 2);
+    }
+    else if(val=='m+'){
+        let g:any=localStorage.getItem("m")
+        g=parseInt(g)
+        g+=g
+        disp.value=g
+    }
+    else if(val=='m-'){
+        let g:any=localStorage.getItem("m")
+        g=parseInt(g)
+        g-=g
+        disp.value=g
+    }
+    else if(val=='mc'){
+        let g:any=localStorage.setItem("m",'0')
+        t=true
+    }
+    else if(val=='mr'){
+        disp.value=localStorage.getItem("m")
+    }
+    else {
+        disp.value += val;
+    }
 }
-}
-
-var yal=false;
+var yal = false;
 function toggleSize(){
     console.log('yes')
 if(yal){

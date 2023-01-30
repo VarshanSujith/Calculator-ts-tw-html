@@ -31,6 +31,7 @@ function closeDragElement() {
 //     }
 // }
 var disp = document.getElementsByName('disp')[0];
+
 function calculate() {
     if (disp.value.includes("!")) {
         var size = disp.value.length;
@@ -49,9 +50,27 @@ function calculate() {
         /* Otherwise evaluate and execute output */
         disp.value = eval(disp.value);
 }
+var t=true
 function setValue(val) {
+    if(t){
+        var nas = Number(disp.value);
+    localStorage.setItem("m", nas);
+    console.log(nas)
+    console.log(disp.value)
+    console.log(val)
+    // t=false
+    }
     if (val == '0-') {
         disp.value = '';
+    }
+    else if(val=='xe'){
+        console.log(val)
+        var num=Number(disp.value);
+        disp.value = num*(Math.pow(10,num))
+    }
+    else if(val=='xxe'){
+        var num=Number(disp.value);
+        disp.value=num*2.718281828459045
     }
     else if (val == '~') {
         var ans = Number(disp.value);
@@ -63,11 +82,15 @@ function setValue(val) {
     }
     else if (val == 'x3') {
         var ans = Number(disp.value);
-        disp.value = Math.pow(ans, 2);
+        disp.value = Math.pow(ans, 3);
     }
     else if (val == '10^') {
         var ans = Number(disp.value);
         disp.value = Math.pow(10, ans);
+    }
+    else if(val=='^'){
+        var ans = Number(disp.value)
+        console.log(ans);
     }
     else if (val == 'tanh') {
         var ans = Number(disp.value);
@@ -82,6 +105,25 @@ function setValue(val) {
     else if (val == 'sinh') {
         var ans = Number(disp.value);
         disp.value = ((Math.pow(Math.E, ans) - Math.pow(Math.E, -ans)) / 2);
+    }
+    else if(val=='m+'){
+        let g=localStorage.getItem("m")
+        g=parseInt(g)
+        g+=g
+        disp.value=g
+    }
+    else if(val=='m-'){
+        let g=localStorage.getItem("m")
+        g=parseInt(g)
+        g-=g
+        disp.value=g
+    }
+    else if(val=='mc'){
+        let g=localStorage.setItem("m",0)
+        t=true
+    }
+    else if(val=='mr'){
+        disp.value=localStorage.getItem("m")
     }
     else {
         disp.value += val;
